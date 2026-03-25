@@ -1,0 +1,17 @@
+{
+  "name": "bluesos-watch-face",
+  "version": "1.0.0",
+  "description": "vivo watch5 BlueOS 表盘项目",
+  "main": "src/app.ux",
+  "scripts": {
+    "build": "blueos-toolkit build",
+    "dev": "blueos-toolkit watch"
+  },
+  "keywords": [
+    "blueos",
+    "watchface",
+    "vivo"
+  ],
+  "author": "",
+  "license": "MIT"
+}

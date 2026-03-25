@@ -1,0 +1,15 @@
+<script>
+  /**
+   * BluesOS Watch Face 应用入口
+   * 应用级别的配置，供所有页面公用
+   */
+  /**manifest**/
+  export default {
+    onCreate() {
+      console.log('App onCreate')
+    },
+    onDestroy() {
+      console.log('App onDestroy')
+    }
+  }
+</script>

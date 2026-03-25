@@ -1,0 +1,37 @@
+{
+  "package": "com.bluesos.watchface.demo",
+  "name": "BluesOS表盘",
+  "versionName": "1.0.0",
+  "versionCode": 1,
+  "icon": "/watchface/assets/icon.png",
+  "deviceTypeList": [
+    "watch-round"
+  ],
+  "config": {
+    "designWidth": 466
+  },
+  "router": {
+    "watchfaces": {
+      "watchface": {
+        "id": 1001,
+        "name": "BluesOS展示表盘",
+        "component": "index",
+        "edit": "edit",
+        "features": [
+          {
+            "name": "blueos.app.router"
+          }
+        ],
+        "params": {
+          "previewImage": [
+            "assets/preview.png"
+          ],
+          "hpw": 0
+        }
+      }
+    }
+  },
+  "display": {
+    "backgroundColor": "#000000"
+  }
+}
