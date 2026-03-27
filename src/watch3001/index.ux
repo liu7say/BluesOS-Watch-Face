@@ -1,0 +1,149 @@
+<template>
+  <div class="wrap">
+    <div class="container" if="{{obj.shown}}">
+      <!-- 画一个由60根刻度组成的完整的圆！每一个刻度都在原点旋转而形成圆外郭 -->
+      <block for="angle in baseMarks">
+        <div class="mark-container" style="transform: rotate({{angle}}deg)">
+          <div class="mark-space"></div>
+          <div class="mark-line"></div>
+        </div>
+      </block>
+
+      <!-- 贯穿表盘的长直时针 -->
+      <div class="main-axis">
+        <!-- style="transform: rotate({{mainAngle}}deg)" -->
+        <div class="main-line"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: [],
+    data() {
+      return {
+        timerId: -1,
+        mainAngle: -90,
+        baseMarks: [],
+        obj: {
+          shown: true,
+        },
+      }
+    },
+
+    onInit() {
+      this.initMarks()
+      this.refreshTime()
+
+      this.timerId = setInterval(() => {
+        this.refreshTime()
+      }, 1000)
+    },
+
+    initMarks() {
+      const marks = []
+      // 渲染全圆周的 60 个刻度
+      for (let i = 0; i < 60; i++) {
+        // 在横滚盒基准下，需要 -90 使 0 度也就是第一个刻度站在最顶端 12 点钟位
+        marks.push(i * 6 - 90)
+      }
+      this.baseMarks = marks
+    },
+
+    onDestroy() {
+      clearInterval(this.timerId)
+    },
+
+    refreshTime() {
+      const time = new Date()
+      const h = time.getHours()
+      const m = time.getMinutes()
+      const s = time.getSeconds()
+
+      // progress 计算 12小时制的一周当前所在绝对方位角
+      const progress = (h % 12) + m / 60 + s / 3600
+      const dialAngle = progress * 30
+
+      // 贯穿中长直线的原生水平状态横躺，加上拨动的时针真实偏角。
+      this.mainAngle = dialAngle - 90
+    },
+  }
+</script>
+
+<style lang="less">
+  @screenSize: 466px;
+  @lineSize: 2px;
+
+  .wrap {
+    height: @screenSize;
+    width: @screenSize;
+    position: relative;
+    .container {
+      /* transform: scale(1.5);
+      position: absolute;
+      left: 50px;
+      top: 200px; */
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-self: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background-color: #000000;
+      position: relative;
+      /* 取消所有不可控的高阶属性影响 */
+
+      .mark-container {
+        position: absolute;
+        top: 231px; /* 宽466高4，垂直中心 = (466-4)/2 = 231 */
+        left: 0;
+        width: @screenSize;
+        height: @lineSize;
+        justify-content: center; /* 左右对称留白排布金牌法！ */
+      }
+      .mark-space {
+        /* 中心右段我们需要：(外间距 12) + (红线长 15) = 27。 
+         左圈留白将自适应产生 12。
+         (466 - 24间距 - 15线宽) = 427 填充留白！ 
+      */
+        width: 427px;
+        height: @lineSize;
+      }
+      .mark-line {
+        width: 15px;
+        height: @lineSize;
+        background-color: #ff0000;
+      }
+
+      .main-axis {
+        position: absolute;
+        top: 231px;
+        left: 0;
+        width: @screenSize;
+        height: @lineSize;
+        justify-content: center; /* 左右均留13白自动对齐完美包围外圈红刻度 */
+      }
+      .main-line {
+        width: 440px; /* 466 - 2*13 = 440 */
+        height: @lineSize;
+        background-color: #ff0000;
+      }
+    }
+  }
+
+  @media screen and (device: watch-square) {
+    .wrap {
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #000000;
+    }
+    .container {
+      width: @screenSize;
+      height: @screenSize;
+    }
+  }
+</style>

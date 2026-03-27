@@ -1,0 +1,772 @@
+{
+	"name": "vivo-watch-blueos-docs",
+	"description": "vivo watch blueos developer documentation index for quickstart, api, and native sections",
+	"version": "1.0.0",
+	"type": "document-index",
+	"roots": [
+		{
+			"root": "https://developers-watch.vivo.com.cn/reference/quickstart/introduction/",
+			"category": "quickstart",
+			"sections": [
+				{
+					"section": "快速开始",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/quickstart/introduction/",
+							"title": "概述",
+							"desc": "蓝河应用开发总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/quickstart/quick-start/",
+							"title": "构建首个蓝河应用",
+							"desc": "首个项目搭建流程"
+						}
+					]
+				},
+				{
+					"section": "基础指南",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/intro/",
+							"title": "框架简介",
+							"desc": "应用框架核心概念"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/file-organization/",
+							"title": "文件组织",
+							"desc": "项目目录结构说明"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/manifest/",
+							"title": "manifest文件",
+							"desc": "包配置与权限声明"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/ux-file/",
+							"title": "ux文件",
+							"desc": "页面结构与逻辑"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/style-sheet/",
+							"title": "style样式",
+							"desc": "样式语法与用法"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/configuration/script/",
+							"title": "javascript代码",
+							"desc": "业务逻辑编写方式"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/page-style-and-layout/",
+							"title": "页面布局",
+							"desc": "页面排版与布局"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/switching-pages/",
+							"title": "页面路由",
+							"desc": "页面跳转与导航"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/data-binding/",
+							"title": "数据绑定",
+							"desc": "数据驱动视图更新"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/for/",
+							"title": "列表渲染",
+							"desc": "循环渲染列表"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/if-show/",
+							"title": "条件渲染",
+							"desc": "按条件显示隐藏"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/event-on/",
+							"title": "事件处理",
+							"desc": "事件绑定与响应"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/parent-child-component-communication/",
+							"title": "自定义组件",
+							"desc": "组件封装与复用"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/app-service/props/",
+							"title": "props",
+							"desc": "组件入参传递"
+						}
+					]
+				},
+				{
+					"section": "智慧服务卡片",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/widget/overview/",
+							"title": "概述",
+							"desc": "智慧卡片能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/widget/project-config/",
+							"title": "卡片配置",
+							"desc": "卡片配置项说明"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/widget/js-widget/",
+							"title": "标准卡开发",
+							"desc": "标准卡开发流程"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/widget/lite-widget/",
+							"title": "轻卡开发",
+							"desc": "轻量卡片开发"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/widget/widget-provider/",
+							"title": "widgetProvider 开发",
+							"desc": "提供卡片数据能力"
+						}
+					]
+				},
+				{
+					"section": "进阶指南",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/extend/watchface/",
+							"title": "表盘",
+							"desc": "表盘开发与配置"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/extend/widget/",
+							"title": "快捷卡片",
+							"desc": "快捷卡片开发"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/extend/resident/",
+							"title": "后台运行",
+							"desc": "后台能力与限制"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/extend/launch-mode/",
+							"title": "页面启动模式",
+							"desc": "启动模式配置"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/extend/mulit/",
+							"title": "屏幕适配",
+							"desc": "多屏尺寸适配"
+						}
+					]
+				},
+				{
+					"section": "手表性能优化",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/overview/",
+							"title": "概述",
+							"desc": "性能优化总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-data/",
+							"title": "响应式数据优化",
+							"desc": "降低响应式开销"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-treeshaking/",
+							"title": "减少代码体积",
+							"desc": "包体积优化"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-init/",
+							"title": "减少初始化开销",
+							"desc": "启动初始化优化"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-runtime/",
+							"title": "运行时性能优化",
+							"desc": "运行期性能优化"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-dangerous/",
+							"title": "避免高耗性能操作",
+							"desc": "避免耗电耗时操作"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-subscription/",
+							"title": "退出页面释放监听",
+							"desc": "释放订阅与监听"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-src/",
+							"title": "图片资源优化",
+							"desc": "图片资源压缩优化"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-longlist/",
+							"title": "长列表性能优化",
+							"desc": "长列表渲染优化"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-frame-rate/",
+							"title": "帧率优化指引",
+							"desc": "提升动画与渲染流畅"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/perf-guide/perf-memory-leak/",
+							"title": "js 内存泄漏排查",
+							"desc": "排查JS内存泄漏"
+						}
+					]
+				},
+				{
+					"section": "其他",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/question-answer/build-env/",
+							"title": "编译环境变量",
+							"desc": "环境变量配置"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/question-answer/i18n/",
+							"title": "国际化",
+							"desc": "多语言适配"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/reference/question-answer/rtl/",
+							"title": "RTL 适配",
+							"desc": "右到左布局适配"
+						}
+					]
+				}
+			]
+		},
+		{
+			"root": "https://developers-watch.vivo.com.cn/api/system/app/",
+			"category": "api",
+			"sections": [
+				{
+					"section": "应用框架",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/app/",
+							"title": "概述",
+							"desc": "应用框架能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/systemapp/",
+							"title": "应用上下文",
+							"desc": "获取上下文与退出应用"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/router/",
+							"title": "页面路由",
+							"desc": "页面跳转与参数传递"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/am/",
+							"title": "应用管理",
+							"desc": "查询前后台与应用状态"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/extend/lifecycle/",
+							"title": "生命周期",
+							"desc": "页面与应用生命周期"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/package/",
+							"title": "包管理",
+							"desc": "查询安装版本与签名"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/pagestack/",
+							"title": "页面栈管理",
+							"desc": "读写页面栈信息"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/extend/file-sandbox/",
+							"title": "应用沙箱目录",
+							"desc": "访问应用沙箱目录"
+						}
+					]
+				},
+				{
+					"section": "智慧服务卡片",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/widget-provider/",
+							"title": "widgetProvider",
+							"desc": "提供卡片数据服务"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/widget-manager/",
+							"title": "卡片管理",
+							"desc": "管理卡片实例与刷新"
+						}
+					]
+				},
+				{
+					"section": "通知能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/event/",
+							"title": "公共事件",
+							"desc": "跨应用事件通信"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/notification/",
+							"title": "消息通知",
+							"desc": "发送系统通知"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/prompt/",
+							"title": "弹窗",
+							"desc": "创建系统弹窗提示"
+						}
+					]
+				},
+				{
+					"section": "后台管理",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/schedule/",
+							"title": "定时任务",
+							"desc": "后台定时任务能力"
+						}
+					]
+				},
+				{
+					"section": "AI服务",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/ai/overview/",
+							"title": "概述",
+							"desc": "AI能力开放总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/ai/vision/",
+							"title": "视觉技术",
+							"desc": "视觉识别相关能力"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/ai/speech/",
+							"title": "语音技术",
+							"desc": "语音识别合成能力"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/ai/nlp/",
+							"title": "自然语言处理",
+							"desc": "NLP相关能力"
+						}
+					]
+				},
+				{
+					"section": "设备互联能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/introduce/",
+							"title": "概述",
+							"desc": "设备互联能力总览"
+						}
+					]
+				},
+				{
+					"section": "开发指导",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/development-guidance/rpc-sdk-guidance/",
+							"title": "vivo智能终端设备SDK",
+							"desc": "手机端SDK接入指南"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/development-guidance/watch-guidance/",
+							"title": "穿戴业务Kit",
+							"desc": "手表互联业务示例"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/development-guidance/privacy-policy/",
+							"title": "隐私政策",
+							"desc": "设备互联隐私说明"
+						}
+					]
+				},
+				{
+					"section": "API参考",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/brief-introduction/",
+							"title": "说明",
+							"desc": "互联API说明"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/mobile-side/",
+							"title": "手机侧",
+							"desc": "手机侧互联API"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/connect/interconnect/",
+							"title": "vivo智能终端设备侧",
+							"desc": "手表侧互联API"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/generatecertificatethumbprint/",
+							"title": "生成签名证书指纹",
+							"desc": "生成证书指纹方法"
+						}
+					]
+				},
+				{
+					"section": "通信能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/communicationOverview/",
+							"title": "概述",
+							"desc": "网络通信能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/bluetooth/",
+							"title": "蓝牙",
+							"desc": "蓝牙连接与数据传输"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/request/",
+							"title": "上传下载",
+							"desc": "文件上传下载接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/fetch/",
+							"title": "数据请求",
+							"desc": "HTTP请求接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/websocket/",
+							"title": "websocket",
+							"desc": "WebSocket长连接"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/network/",
+							"title": "网络状态",
+							"desc": "监听网络连接状态"
+						}
+					]
+				},
+				{
+					"section": "多媒体能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/multimediaOverview/",
+							"title": "概述",
+							"desc": "多媒体能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/audio/",
+							"title": "音频",
+							"desc": "音频播放相关接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/media/",
+							"title": "多媒体",
+							"desc": "媒体处理相关接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/audiomanager/",
+							"title": "音频管理",
+							"desc": "音频焦点与管理"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/record/",
+							"title": "录音",
+							"desc": "录音能力接口"
+						}
+					]
+				},
+				{
+					"section": "数据存储能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/storage/overview/",
+							"title": "概述",
+							"desc": "数据存储能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/storage/statvfs",
+							"title": "存储空间统计",
+							"desc": "查询存储空间信息"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/storage/localstorage",
+							"title": "K-V 数据存储",
+							"desc": "本地键值存储"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/storage/file/",
+							"title": "文件存储",
+							"desc": "文件读写管理"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/storage/exchange/",
+							"title": "数据共享",
+							"desc": "应用间数据共享"
+						}
+					]
+				},
+				{
+					"section": "电话能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/phoneOverview/",
+							"title": "概述",
+							"desc": "电话能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/short-message-service/",
+							"title": "短信",
+							"desc": "短信发送相关接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/telephony-service/",
+							"title": "电话",
+							"desc": "拨号通话相关接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/simManager/",
+							"title": "sim卡管理",
+							"desc": "SIM卡信息管理"
+						}
+					]
+				},
+				{
+					"section": "基础硬件能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/hardware/",
+							"title": "概述",
+							"desc": "硬件能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/geolocation/",
+							"title": "地理位置",
+							"desc": "定位与坐标获取"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/vibrator/",
+							"title": "振动",
+							"desc": "设备振动控制"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/screen/",
+							"title": "屏幕管理",
+							"desc": "屏幕状态与锁屏"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/sensor/",
+							"title": "传感器",
+							"desc": "访问硬件传感器"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/battery/",
+							"title": "电量信息",
+							"desc": "读取电量与充电状态"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/brightness/",
+							"title": "屏幕亮度",
+							"desc": "读取设置屏幕亮度"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/device/",
+							"title": "设备信息",
+							"desc": "查询设备标识与参数"
+						}
+					]
+				},
+				{
+					"section": "基础软件能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/softwareOverview/",
+							"title": "概述",
+							"desc": "基础软件能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/settings/",
+							"title": "系统设置",
+							"desc": "读取系统设置"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/inputmethod/",
+							"title": "输入法",
+							"desc": "输入法调用能力"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/fastlz/",
+							"title": "解压缩",
+							"desc": "FastLZ解压能力"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/tar/",
+							"title": "解包",
+							"desc": "tar包解包能力"
+						}
+					]
+				},
+				{
+					"section": "运动健康能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/health/health/",
+							"title": "运动健康",
+							"desc": "健康与运动数据接口"
+						}
+					]
+				},
+				{
+					"section": "安全能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/peaceOverview/",
+							"title": "概述",
+							"desc": "安全能力总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/permission/",
+							"title": "权限管理",
+							"desc": "申请查询系统权限"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/cipher/",
+							"title": "密码算法",
+							"desc": "加解密与摘要算法"
+						}
+					]
+				},
+				{
+					"section": "调试能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/system/console/",
+							"title": "日志打印",
+							"desc": "控制台日志输出"
+						}
+					]
+				},
+				{
+					"section": "通用",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/common/overview/",
+							"title": "概述",
+							"desc": "通用模块总览"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/common/rule/",
+							"title": "调用规则",
+							"desc": "API调用规范"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/api/common/error-code/",
+							"title": "通用错误码",
+							"desc": "统一错误码说明"
+						}
+					]
+				}
+			]
+		},
+		{
+			"root": "https://developers-watch.vivo.com.cn/native/quickstart/introduction/",
+			"category": "native",
+			"access": "partner-only",
+			"sections": [
+				{
+					"section": "快速开始",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/quickstart/introduction/",
+							"title": "概述",
+							"desc": "Native API能力总览"
+						}
+					]
+				},
+				{
+					"section": "应用框架",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/package/package/",
+							"title": "包管理",
+							"desc": "Native包管理接口"
+						}
+					]
+				},
+				{
+					"section": "通信能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/network/download/",
+							"title": "上传下载",
+							"desc": "Native上传下载接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/network/fetch/",
+							"title": "数据请求",
+							"desc": "Native网络请求接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/network/network/",
+							"title": "网络状态",
+							"desc": "Native网络状态监听"
+						}
+					]
+				},
+				{
+					"section": "数据存储能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/file/filesystem/",
+							"title": "文件系统",
+							"desc": "Native文件系统接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/file/compress/",
+							"title": "压缩解压",
+							"desc": "Native压缩解压接口"
+						}
+					]
+				},
+				{
+					"section": "基础硬件能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/geolocation/geolocation/",
+							"title": "地理位置",
+							"desc": "Native定位接口"
+						},
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/device/device/",
+							"title": "设备信息",
+							"desc": "Native设备信息接口"
+						}
+					]
+				},
+				{
+					"section": "安全能力",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/cipher/cipher/",
+							"title": "密码算法",
+							"desc": "Native加密算法接口"
+						}
+					]
+				},
+				{
+					"section": "标准库支持",
+					"pages": [
+						{
+							"url": "https://developers-watch.vivo.com.cn/native/stdlibsupport/stdlibsupport/",
+							"title": "标准库支持",
+							"desc": "C/C++/POSIX支持清单"
+						}
+					]
+				}
+			]
+		}
+	]
+}
