@@ -1,18 +1,74 @@
 <template>
-  <div class="wrap">
-    <div class="container" if="{{obj.shown}}">
-      <!-- 画一个由60根刻度组成的完整的圆！每一个刻度都在原点旋转而形成圆外郭 -->
-      <block for="angle in baseMarks">
-        <div class="mark-container" style="transform: rotate({{angle}}deg)">
-          <div class="mark-space"></div>
-          <div class="mark-line"></div>
+  <div
+    class="wrap"
+    style="width: {{config.plateSize}}px; height: {{config.plateSize}}px;">
+    <!-- 加载由 JS 计算实时返回的反向物理公转轴心移量，营造局部凸显奇观 -->
+    <div
+      class="container"
+      if="{{obj.shown}}"
+      style="background-color: {{config.bgColor}}; left: {{containerLeft}}px; top: {{containerTop}}px;">
+      <!-- 48 根分钟短刻度 (保持最细致干净的边界) -->
+      <block for="angle in baseMinuteMarks">
+        <div
+          class="mark-container"
+          style="top: {{markTop}}px; height: {{config.markThick}}px; width: {{config.plateSize}}px; transform: rotate({{angle}}deg)">
+          <div
+            class="mark-space"
+            style="width: {{markSpace}}px; height: {{config.markThick}}px;"></div>
+          <div
+            class="mark-line"
+            style="width: {{config.markLength}}px; height: {{config.markThick}}px; background-color: {{config.themeColor}};"></div>
         </div>
       </block>
 
-      <!-- 贯穿表盘的长直时针 -->
-      <div class="main-axis">
-        <!-- style="transform: rotate({{mainAngle}}deg)" -->
-        <div class="main-line"></div>
+      <!-- 8 根普通正点刻度 (有分量的整点标记，稍厚更长) -->
+      <block for="angle in baseHourMarks">
+        <div
+          class="mark-container-hour"
+          style="top: {{hourTop}}px; height: {{config.hourThick}}px; width: {{config.plateSize}}px; transform: rotate({{angle}}deg)">
+          <div
+            class="mark-space-hour"
+            style="width: {{hourSpace}}px; height: {{config.hourThick}}px;"></div>
+          <div
+            class="mark-line-hour"
+            style="width: {{config.hourLength}}px; height: {{config.hourThick}}px; background-color: {{config.themeColor}};"></div>
+        </div>
+      </block>
+
+      <!-- 4 根主轴点长刻度 (3/6/9/12 点钟位置，最为粗长突出) -->
+      <block for="angle in baseQuarterMarks">
+        <div
+          class="mark-container-quarter"
+          style="top: {{quarterTop}}px; height: {{config.quarterThick}}px; width: {{config.plateSize}}px; transform: rotate({{angle}}deg)">
+          <div
+            class="mark-space-quarter"
+            style="width: {{quarterSpace}}px; height: {{config.quarterThick}}px;"></div>
+          <div
+            class="mark-line-quarter"
+            style="width: {{config.quarterLength}}px; height: {{config.quarterThick}}px; background-color: {{config.themeColor}};"></div>
+        </div>
+      </block>
+
+      <!-- 12 个整点数字标签，通过三角函数绝对定位在刻度外侧 -->
+      <block for="item in baseHourNumbers">
+        <div
+          class="hour-number"
+          style="left: {{item.x}}px; top: {{item.y}}px; width: {{config.numberBoxSize}}px; height: {{config.numberBoxSize}}px;">
+          <text
+            class="hour-number-text"
+            style="font-size: {{config.numberFontSize}}px; color: {{config.themeColor}};">
+            {{ item.label }}
+          </text>
+        </div>
+      </block>
+
+      <!-- 贯穿表盘的长直时针，容器宽度随 mainLength 自动扩展 -->
+      <div
+        class="main-axis"
+        style="top: {{mainTop}}px; height: {{config.mainThick}}px; width: {{mainAxisWidth}}px; left: {{mainAxisLeft}}px; transform: rotate({{mainAngle}}deg)">
+        <div
+          class="main-line"
+          style="width: {{config.mainLength}}px; height: {{config.mainThick}}px; background-color: {{config.themeColor}};"></div>
       </div>
     </div>
   </div>
@@ -25,15 +81,66 @@
       return {
         timerId: -1,
         mainAngle: -90,
-        baseMarks: [],
+        baseMinuteMarks: [],
+        baseHourMarks: [],
+        baseQuarterMarks: [],
+        baseHourNumbers: [],
         obj: {
           shown: true,
         },
+
+        // ====== 快捷设计变量中心 ======
+        config: {
+          plateSize: 466, // 表盘整体宽高（分辨率）
+          themeColor: '#e00202aa', // 表盘的整体线系色调
+          bgColor: '#000000', // 整体背景颜色
+
+          orbitOffset: 300, // 基底相对屏幕圆心的游离公转位移强度。越大则漏出的边缘越干脆尖锐。
+
+          outerMargin: 12, // 外圈基础边距（刻度离表盘边缘的留白）
+
+          // 1. 分针短刻度参数
+          markThick: 3, // 厚度
+          markLength: 8, // 长度（向内延伸多少）
+
+          // 2. 基础小时（整点）刻度参数
+          hourThick: 3,
+          hourLength: 15,
+
+          // 3. 极点主刻度（3、6、9、12位）参数
+          quarterThick: 3,
+          quarterLength: 25,
+
+          // 5. 整点数字标签参数
+          numberFontSize: 14, // 数字字体大小
+          numberBoxSize: 30, // 数字容器盒子尺寸
+          numberGap: 15, // 数字中心距刻度外缘的间距
+
+          // 4. 十字长时针主轴参数
+          mainThick: 3,
+          mainLength: 1040,
+        },
+
+        // --- 以下为自动运算引擎值，无需手动计算干预 ---
+        markTop: 0,
+        markSpace: 0,
+        hourTop: 0,
+        hourSpace: 0,
+        quarterTop: 0,
+        quarterSpace: 0,
+        mainTop: 0,
+        mainAxisWidth: 0,
+        mainAxisLeft: 0,
+
+        containerLeft: 0,
+        containerTop: 0,
       }
     },
 
     onInit() {
+      this.calcStyles()
       this.initMarks()
+      this.initNumbers()
       this.refreshTime()
 
       this.timerId = setInterval(() => {
@@ -41,14 +148,75 @@
       }, 1000)
     },
 
+    calcStyles() {
+      const c = this.config
+      // 快应用模板采用双边对称挤压盒布局进行原心渲染对齐
+
+      // 分钟线核算
+      this.markTop = (c.plateSize - c.markThick) / 2
+      this.markSpace = c.plateSize - c.outerMargin * 2 - c.markLength
+
+      // 普通小时段核算
+      this.hourTop = (c.plateSize - c.hourThick) / 2
+      this.hourSpace = c.plateSize - c.outerMargin * 2 - c.hourLength
+
+      // 四时极点长线核算
+      this.quarterTop = (c.plateSize - c.quarterThick) / 2
+      this.quarterSpace = c.plateSize - c.outerMargin * 2 - c.quarterLength
+
+      // 全视野长轴截距核算
+      this.mainTop = (c.plateSize - c.mainThick) / 2
+
+      // 主轴针容器宽度：取 mainLength 和 plateSize 中的较大值，确保不被裁剪
+      this.mainAxisWidth = Math.max(c.plateSize, c.mainLength)
+      // 居中偏移：当容器比表盘宽时，向左偏移差值的一半
+      this.mainAxisLeft = (c.plateSize - this.mainAxisWidth) / 2
+    },
+
     initMarks() {
-      const marks = []
-      // 渲染全圆周的 60 个刻度
+      const qMarks = []
+      const hMarks = []
+      const mMarks = []
+      // 渲染全圆周的 60 个刻度，并层级过滤
       for (let i = 0; i < 60; i++) {
         // 在横滚盒基准下，需要 -90 使 0 度也就是第一个刻度站在最顶端 12 点钟位
-        marks.push(i * 6 - 90)
+        const angle = i * 6 - 90
+        if (i % 15 === 0) {
+          // 每四分之一个圆（即 0, 15, 30, 45 对应 12点、3点、6点、9点）
+          qMarks.push(angle)
+        } else if (i % 5 === 0) {
+          // 其余的通常小时整点
+          hMarks.push(angle)
+        } else {
+          // 最基础的分钟流
+          mMarks.push(angle)
+        }
       }
-      this.baseMarks = marks
+      this.baseQuarterMarks = qMarks
+      this.baseHourMarks = hMarks
+      this.baseMinuteMarks = mMarks
+    },
+
+    initNumbers() {
+      const c = this.config
+      const numbers = []
+      // 数字放置在刻度外侧：半径 = 表盘半径 - 外边距 + 数字间距
+      const radius = c.plateSize / 2 - c.outerMargin + c.numberGap
+      const center = c.plateSize / 2
+      const halfBox = c.numberBoxSize / 2
+
+      for (let i = 0; i < 12; i++) {
+        const hour = i === 0 ? 12 : i
+        const angleDeg = i * 30 // 0=12点, 30=1点, 60=2点...
+        const rad = (angleDeg * Math.PI) / 180
+
+        // CSS坐标系：x向右(sin)，y向下(-cos变+cos)
+        const x = Math.round(center + radius * Math.sin(rad) - halfBox)
+        const y = Math.round(center - radius * Math.cos(rad) - halfBox)
+
+        numbers.push({ label: hour, x: x, y: y })
+      }
+      this.baseHourNumbers = numbers
     },
 
     onDestroy() {
@@ -65,6 +233,12 @@
       const progress = (h % 12) + m / 60 + s / 3600
       const dialAngle = progress * 30
 
+      // --- 新增: 反向轨线游离宇宙计算 ---
+      // 通过将巨盘中心的坐标点绑定极坐标反置推拉，在相反象限持续滑动
+      const rad = (dialAngle * Math.PI) / 180
+      this.containerLeft = -this.config.orbitOffset * Math.sin(rad)
+      this.containerTop = this.config.orbitOffset * Math.cos(rad)
+
       // 贯穿中长直线的原生水平状态横躺，加上拨动的时针真实偏角。
       this.mainAngle = dialAngle - 90
     },
@@ -72,78 +246,62 @@
 </script>
 
 <style lang="less">
-  @screenSize: 466px;
-  @lineSize: 2px;
-
+  /* 
+   * 此处的 CSS 已削减为最轻量的纯粹层叠定位骨架。
+   * 所有的宽高与边距绝对数据，全部依赖 JS 的 `<script>` 数据中心接手推演并通过内联注入。
+   */
   .wrap {
-    height: @screenSize;
-    width: @screenSize;
-    position: relative;
     .container {
-      /* transform: scale(1.5);
-      position: absolute;
-      left: 50px;
-      top: 200px; */
       width: 100%;
       height: 100%;
       flex-direction: column;
       align-self: center;
       flex-shrink: 0;
       border-radius: 50%;
-      background-color: #000000;
       position: relative;
-      /* 取消所有不可控的高阶属性影响 */
+      transform: scale(1.6);
 
-      .mark-container {
-        position: absolute;
-        top: 231px; /* 宽466高4，垂直中心 = (466-4)/2 = 231 */
-        left: 0;
-        width: @screenSize;
-        height: @lineSize;
-        justify-content: center; /* 左右对称留白排布金牌法！ */
-      }
-      .mark-space {
-        /* 中心右段我们需要：(外间距 12) + (红线长 15) = 27。 
-         左圈留白将自适应产生 12。
-         (466 - 24间距 - 15线宽) = 427 填充留白！ 
-      */
-        width: 427px;
-        height: @lineSize;
-      }
-      .mark-line {
-        width: 15px;
-        height: @lineSize;
-        background-color: #ff0000;
-      }
-
+      .mark-container,
+      .mark-container-hour,
+      .mark-container-quarter,
       .main-axis {
         position: absolute;
-        top: 231px;
         left: 0;
-        width: @screenSize;
-        height: @lineSize;
-        justify-content: center; /* 左右均留13白自动对齐完美包围外圈红刻度 */
+        justify-content: center; /* 使用对称自动填补进行定位的核心保障！ */
       }
-      .main-line {
-        width: 440px; /* 466 - 2*13 = 440 */
-        height: @lineSize;
-        background-color: #ff0000;
+
+      /* 整点数字标签：绝对定位到三角函数计算的精确坐标 */
+      .hour-number {
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+      }
+      .hour-number-text {
+        text-align: center;
+        font-family: monospace;
+        font-weight: bold;
+      }
+
+      /* 解除弹性盒压缩限制，保障超长主轴针能够按设定尺寸原样溢出穿透！ */
+      .main-line,
+      .mark-line,
+      .mark-space,
+      .mark-line-hour,
+      .mark-space-hour,
+      .mark-line-quarter,
+      .mark-space-quarter {
+        flex-shrink: 0;
       }
     }
   }
 
   @media screen and (device: watch-square) {
     .wrap {
-      height: 100%;
       width: 100%;
+      height: 100%;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-color: #000000;
-    }
-    .container {
-      width: @screenSize;
-      height: @screenSize;
     }
   }
 </style>
