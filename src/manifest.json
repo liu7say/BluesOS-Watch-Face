@@ -1,5 +1,5 @@
 {
-  "package": "com.example.demo",
+  "package": "com.watchface.minired",
   "versionName": "1.0.0",
   "versionCode": 1,
   "appCategory": [
@@ -26,13 +26,11 @@
           }
         ],
         "params": {
-          "previewImage": [
-            "watch3001/assets/3001.png"
-          ],
+          "previewImage": [],
           "hpw": 0
         }
       }
     }
   },
-  "name": "demo"
+  "name": "极简红黑表盘"
 }
